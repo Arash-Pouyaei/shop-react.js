@@ -88,6 +88,9 @@ h6 a {
     opacity: 1
 }
 
+button:focus {
+    outline: none;
+}
 
 ul,
 li,
@@ -126,6 +129,9 @@ img {
     height: auto;
 }
 
+ :focus {
+    outline: 0;
+}
 
 .paddind_bottom_0 {
     padding-bottom: 0 !important;
@@ -931,7 +937,5 @@ input.mail_bt::placeholder {
     margin-top: 90px;
 }
 
-.form-control:focus{
-    border: 1px solid black!important
-}
+
 /* copyright section end */

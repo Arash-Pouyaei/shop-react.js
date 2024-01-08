@@ -1,8 +1,9 @@
 import React from 'react';
 import logo from "../images/logo.png";
+import banner from "../images/banner-bg.png"
 import toggle_icon from "../images/toggle-icon.png"
 
-export const Header = ({setformadminshow , setformloginusershow}) => {
+export const Header = () => {
   return (
     <div class="banner_bg_main" style={{zIndex:"1"}}>
          <div class="container">
@@ -11,24 +12,23 @@ export const Header = ({setformadminshow , setformloginusershow}) => {
                   <div class="col-sm-12">
                      <div class="custom_menu">
                         <ul>
-                           <li><a className='h5' href="#">Best Sellers</a></li>
-                           <li><a className='h5' href="#">Gift Ideas</a></li>
-                           <li><a className='h5' href="#">New Releases</a></li>
-                           <li><a className='h5' href="#">Today's Deals</a></li>
-                           <li><a className='h5' href="#">Customer Service</a></li>
-                           <li><a className='h5' href="#" onClick={a=>setformloginusershow(true)}>login/register</a></li>
-                           <li><a className='h5' href="#" onClick={a=>setformadminshow(true)}>admin</a></li>
+                           <li><a href="#">Best Sellers</a></li>
+                           <li><a href="#">Gift Ideas</a></li>
+                           <li><a href="#">New Releases</a></li>
+                           <li><a href="#">Today's Deals</a></li>
+                           <li><a href="#">Customer Service</a></li>
                         </ul>
                      </div>
                   </div>
                </div>
             </div>
          </div>
+         
          <div class="logo_section">
             <div class="container">
                <div class="row">
                   <div class="col-sm-12">
-                     <div class="logo"><a href="index.html"><img alt='img' src={logo}/></a></div>
+                     <div class="logo"><a href="index.html"><img src={logo}/></a></div>
                   </div>
                </div>
             </div>
@@ -44,14 +44,14 @@ export const Header = ({setformadminshow , setformloginusershow}) => {
                      <a href="electronic.html">Electronic</a>
                      <a href="jewellery.html">Jewellery</a>
                   </div>
-                  <span class="toggle_icon" onclick="openNav()"><img alt='img' src={toggle_icon}/></span>
+                  <span class="toggle_icon" onclick="openNav()"><img src={toggle_icon}/></span>
                   <div class="dropdown">
-                     <button class="btn btn-secondary dropdown-toggle h5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category 
+                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category 
                      </button>
-                     <div class="dropdown-menu h5" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item h5" href="#">Action</a>
-                        <a class="dropdown-item h5" href="#">Another action</a>
-                        <a class="dropdown-item h5" href="#">Something else here</a>
+                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
                      </div>
                   </div>
                   <div class="main">
@@ -60,7 +60,7 @@ export const Header = ({setformadminshow , setformloginusershow}) => {
                         <input type="text" class="form-control" placeholder="Search this blog"/>
                         <div class="input-group-append">
                            <button class="btn btn-secondary" type="button" style={{backgroundColor: "#f26522", borderColor:"#f26522" }}>
-                              <i class="fa fa-search"></i>
+                           <i class="fa fa-search"></i>
                            </button>
                         </div>
                      </div>
@@ -68,11 +68,11 @@ export const Header = ({setformadminshow , setformloginusershow}) => {
                   <div class="header_box">
                      <div class="login_menu">
                         <ul>
-                           <li><a className='h5' href="#">
+                           <li><a href="#">
                               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                               <span class="padding_10">Cart</span></a>
                            </li>
-                           <li><a className='h5' href="#">
+                           <li><a href="#">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               <span class="padding_10">Cart</span></a>
                            </li>

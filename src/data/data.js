@@ -1,11 +1,8 @@
-const datas = [{
-    ProductType:"men clothes",
-    ProductName:"a",
-    ProductPrice:1,
-    ProductPicture:"",
-    get ProductUrl(){
-        return (this.ProductType+"/"+this.ProductName);
-    }
-    
+const datas = []
+const admins = [{
+    username:"arash",
+    email:"abbaspoyaee@gmail.com",
+    password:"ArAsH PoUyAeI1383"
 }]
-export {datas}
+const users = []
+export {datas,admins,users}
