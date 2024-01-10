@@ -19,9 +19,9 @@ const Paneladmin = ({setformadminshow , setpaneladminshow , data , setdata , adm
               <div class="custom_menu">
                 <ul>
                   <li>
-                    <a href="#" className='h5' style={{marginRight:"10px"}} onClick={a=>setpaneladminshow(false)&&setformadminshow(false)}>Home Page</a>
+                    <a href="#" className='h5' style={{marginRight:"10px"}} onClick={a=>{setpaneladminshow(false);setformadminshow(false);}}>Home Page</a>
                     {" "}
-                    <a href="#" className='h5' style={{marginLeft:"10px"}} onClick={a=>setpaneladminshow(false)&&setformadminshow(true)}>Log Out</a>
+                    <a href="#" className='h5' style={{marginLeft:"10px"}} onClick={a=>{setpaneladminshow(false);setformadminshow(true);}}>Log Out</a>
                   </li>
                 </ul>
               </div>
