@@ -84,7 +84,7 @@ h4 .a,
 h5 .a,
 h6 .a {
     color: #212121;
-    text-decoration: none!important;
+    text-decoration: none !important;
     opacity: 1
 }
 
@@ -192,9 +192,7 @@ button {
 .banner_bg_main {
     width: 100%;
     float: left;
-    background-image: url(../images/banner-bg.png);
-    height: 70svh;
-    background-size: 100%;
+    /*background-image: url(../images/banner-bg.png);*/
     background-repeat: no-repeat;
 }
 
@@ -314,6 +312,7 @@ button {
     .sidenav {
         padding-top: 15px;
     }
+
     .sidenav .a {
         font-size: 18px;
     }
@@ -354,7 +353,7 @@ button {
     border-color: #30302e;
 }
 
-.show>.btn-secondary.dropdown-toggle:focus {
+.show > .btn-secondary.dropdown-toggle:focus {
     box-shadow: none;
 }
 
@@ -931,7 +930,8 @@ input.mail_bt::placeholder {
     margin-top: 90px;
 }
 
-.form-control:focus{
-    border: 1px solid black!important
+.form-control:focus {
+    border: 1px solid black !important
 }
+
 /* copyright section end */
