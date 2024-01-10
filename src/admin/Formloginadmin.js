@@ -23,7 +23,7 @@ const Formloginadmin = ({setformadminshow , paneladminshow , setpaneladminshow ,
                                     <div class="custom_menu">
                                         <ul>
                                             <li>
-                                                <a href="#" className='h5' onClick={a=>setformadminshow(false)}>Home Page</a>
+                                                <a href="#" className='h5 a' onClick={a=>setformadminshow(false)}>Home Page</a>
                                             </li>
                                         </ul>
                                     </div>

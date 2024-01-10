@@ -11,13 +11,13 @@ export const Header = ({setformadminshow , setformloginusershow}) => {
                   <div class="col-sm-12">
                      <div class="custom_menu">
                         <ul>
-                           <li><a className='h5' href="#">Best Sellers</a></li>
-                           <li><a className='h5' href="#">Gift Ideas</a></li>
-                           <li><a className='h5' href="#">New Releases</a></li>
-                           <li><a className='h5' href="#">Today's Deals</a></li>
-                           <li><a className='h5' href="#">Customer Service</a></li>
-                           <li><a className='h5' href="#" onClick={a=>setformloginusershow(true)}>login/register</a></li>
-                           <li><a className='h5' href="#" onClick={a=>setformadminshow(true)}>admin</a></li>
+                           <li><a className='h5 a' href="#">Best Sellers</a></li>
+                           <li><a className='h5 a' href="#">Gift Ideas</a></li>
+                           <li><a className='h5 a' href="#">New Releases</a></li>
+                           <li><a className='h5 a' href="#">Today's Deals</a></li>
+                           <li><a className='h5 a' href="#">Customer Service</a></li>
+                           <li><a className='h5 a' href="#" onClick={a=>setformloginusershow(true)}>login/register</a></li>
+                           <li><a className='h5 a' href="#" onClick={a=>setformadminshow(true)}>admin</a></li>
                         </ul>
                      </div>
                   </div>

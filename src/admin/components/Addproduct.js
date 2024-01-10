@@ -63,7 +63,7 @@ const Addproduct = ({addproductshow , setaddproductshow , data , setdata}) => {
                     </p>
                 
                     <label className='h5 mt-2' htmlFor='Product Picture'>Product Picture</label>
-                    <Field style={{textAlign:"center"}} class="form-control" name="ProductPicture" type="text"/>
+                    <Field style={{textAlign:"center"}} class="form-control" name="ProductPicture" type="file"/>
                     <p className='d-block text-warning h5'>
                         <ErrorMessage name="ProductPicture"/>
                     </p>

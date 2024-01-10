@@ -29,7 +29,7 @@ const Tableproducts = ({adminname , setaddproductshow , addproductshow , data , 
                         <td className='h5'>{item.ProductType}</td>
                         <td className='h5'>{item.ProductName}</td>
                         <td className='h5'>{item.ProductPrice}</td>
-                        <td className='h5'>{item.ProductPicture}</td>
+                        <td className='h5'><img src={item.ProductPicture}/></td>
                         <td className='h5'>{item.ProductCount}</td>
                         <td className='h5'>{item.ProductDate}</td>
                     <td>

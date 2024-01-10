@@ -18,7 +18,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-a {
+.a {
     color: #1f1f1f;
     text-decoration: none !important;
     outline: none !important;
@@ -77,12 +77,12 @@ h6 {
     box-sizing: border-box;
 }
 
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
+h1 .a,
+h2 .a,
+h3 .a,
+h4 .a,
+h5 .a,
+h6 .a {
     color: #212121;
     text-decoration: none!important;
     opacity: 1
@@ -104,13 +104,13 @@ p {
     line-height: 24px;
 }
 
-a {
+.a {
     color: #222222;
     text-decoration: none;
     outline: none !important;
 }
 
-a,
+.a,
 .btn {
     text-decoration: none !important;
     outline: none !important;
@@ -232,11 +232,11 @@ button {
     padding: 6px 10px 0px 10px;
 }
 
-.custom_menu li a {
+.custom_menu li .a {
     color: #f1f1f1;
 }
 
-.custom_menu li a:hover {
+.custom_menu li .a:hover {
     color: #f26522;
 }
 
@@ -289,7 +289,7 @@ button {
     padding-top: 60px;
 }
 
-.sidenav a {
+.sidenav .a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 20px;
@@ -298,7 +298,7 @@ button {
     transition: 0.3s;
 }
 
-.sidenav a:hover {
+.sidenav .a:hover {
     color: #f26522;
 }
 
@@ -314,7 +314,7 @@ button {
     .sidenav {
         padding-top: 15px;
     }
-    .sidenav a {
+    .sidenav .a {
         font-size: 18px;
     }
 }
@@ -413,11 +413,11 @@ button {
     padding-top: 4px;
 }
 
-.login_menu li a {
+.login_menu li .a {
     color: #ffffff;
 }
 
-.login_menu li a:hover {
+.login_menu li .a:hover {
     color: #f26522;
 }
 
@@ -441,7 +441,7 @@ button {
     padding: .4rem 1rem;
 }
 
-a:hover {
+.a:hover {
     color: #f26522;
     text-decoration: underline;
 }
@@ -476,7 +476,7 @@ a:hover {
     padding-top: 30px;
 }
 
-.buynow_bt a {
+.buynow_bt .a {
     width: 100%;
     float: left;
     font-size: 16px;
@@ -489,17 +489,17 @@ a:hover {
     font-weight: bold;
 }
 
-.buynow_bt a:hover {
+.buynow_bt .a:hover {
     background-color: #f26522;
     color: #ffffff;
 }
 
-#my_slider a.carousel-control-next {
+#my_slider .a.carousel-control-next {
     right: 0px;
     top: 40px;
 }
 
-#my_slider a.carousel-control-prev {
+#my_slider .a.carousel-control-prev {
     left: 0px;
     top: 40px;
 }
@@ -590,7 +590,7 @@ a:hover {
     width: 100%;
 }
 
-.buy_bt a {
+.buy_bt .a {
     width: 100%;
     font-size: 16px;
     color: #f26522;
@@ -599,7 +599,7 @@ a:hover {
     font-weight: bold;
 }
 
-.buy_bt a:hover {
+.buy_bt .a:hover {
     background-color: transparent;
     color: #262626;
 }
@@ -610,7 +610,7 @@ a:hover {
     text-align: right;
 }
 
-.seemore_bt a {
+.seemore_bt .a {
     width: 100%;
     font-size: 16px;
     color: #262626;
@@ -618,7 +618,7 @@ a:hover {
     text-align: right;
 }
 
-.seemore_bt a:hover {
+.seemore_bt .a:hover {
     background-color: transparent;
     color: #f26522;
 }
@@ -711,12 +711,12 @@ a:hover {
     min-height: 293px;
 }
 
-#jewellery_main_slider a.carousel-control-next {
+#jewellery_main_slider .a.carousel-control-next {
     right: 615px;
     top: 75%;
 }
 
-#jewellery_main_slider a.carousel-control-prev {
+#jewellery_main_slider .a.carousel-control-prev {
     left: 615px;
     top: 75%;
 }
@@ -840,11 +840,11 @@ input.mail_bt::placeholder {
     text-align: right;
 }
 
-.subscribe_bt a {
+.subscribe_bt .a {
     color: #f26522;
 }
 
-.subscribe_bt a:hover {
+.subscribe_bt .a:hover {
     color: #ffffff;
 }
 
@@ -867,11 +867,11 @@ input.mail_bt::placeholder {
     padding: 20px 10px 0px 10px;
 }
 
-.footer_menu li a {
+.footer_menu li .a {
     color: #f1f1f1;
 }
 
-.footer_menu li a:hover {
+.footer_menu li .a:hover {
     color: #f26522;
 }
 
@@ -889,11 +889,11 @@ input.mail_bt::placeholder {
     padding: 30px 30px 30px 30px;
 }
 
-.location_main a {
+.location_main .a {
     color: #ffffff;
 }
 
-.location_main a:hover {
+.location_main .a:hover {
     color: #f26522;
 }
 
@@ -919,11 +919,11 @@ input.mail_bt::placeholder {
     margin: 20px 0px;
 }
 
-.copyright_text a {
+.copyright_text .a {
     color: #ffffff;
 }
 
-.copyright_text a:hover {
+.copyright_text .a:hover {
     color: #f26522;
 }
 

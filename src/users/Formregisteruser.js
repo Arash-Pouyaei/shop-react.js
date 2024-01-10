@@ -2,13 +2,13 @@ import React , {useState} from 'react'
 import { Field , Form , Formik , ErrorMessage } from 'formik'
 import * as Yup from "yup"
 import Paneluser from './Paneluser'
-const Formregisteruser = ({ setformregisterusershow , user , setuser , setformloginusershow , panelusershow , setpanelusershow }) => {
+const Formregisteruser = ({userloggedin,setuserloggedin,setformregisterusershow , user , setuser , setformloginusershow , panelusershow , setpanelusershow }) => {
     const [error,seterror]=useState("")
   return (
     <>
         {
             panelusershow?
-                <Paneluser setformloginusershow={setformloginusershow} setpanelusershow={setpanelusershow}/>
+                <Paneluser userloggedin={userloggedin} setformloginusershow={setformloginusershow} setpanelusershow={setpanelusershow}/>
             :
                 <div className="container d-flex justify-content-center flex-column align-items-center">
                     <div class="container">
@@ -17,7 +17,7 @@ const Formregisteruser = ({ setformregisterusershow , user , setuser , setformlo
                                 <div class="col-sm-12">
                                     <div class="custom_menu">
                                     <ul>
-                                        <li><a href="#" className='h5' onClick={a=>{setformregisterusershow(false);setformloginusershow(false);}}>Home</a></li>
+                                        <li><a href="#" className='h5 a' onClick={a=>{setformregisterusershow(false);setformloginusershow(false);}}>Home</a></li>
                                     </ul>
                                     </div>
                                 </div>
@@ -59,8 +59,9 @@ const Formregisteruser = ({ setformregisterusershow , user , setuser , setformlo
                         onSubmit={
                             (values)=>{
                                 if (user.find(a=>a.phonenumber!==values.phonenumber)) {
-                                    setuser([...user,values])
-                                    setpanelusershow(true)
+                                    setuser([...user,values]);
+                                    setuserloggedin([values]);
+                                    setpanelusershow(true);
                                 }if (user.find(a=>a.phonenumber===values.phonenumber)) {
                                     seterror("you have registered yet")
                                 }

@@ -5,15 +5,16 @@ import Formregisteruser from './Formregisteruser'
 import Paneluser from './Paneluser'
 const Formloginruser = ({ setformloginusershow , user , setuser , setformregisterusershow , formregisterusershow }) => {
     const [panelusershow,setpanelusershow]=useState(false)
+    const [userloggedin,setuserloggedin]=useState([])
     const [error,seterror]=useState("")
   return (
     <>
         {
             formregisterusershow?
-                <Formregisteruser setpanelusershow={setpanelusershow} user={user} panelusershow={panelusershow} setuser={setuser} setformloginusershow={setformloginusershow} setformregisterusershow={setformregisterusershow} formregisterusershow={formregisterusershow}/>
+                <Formregisteruser userloggedin={userloggedin} setuserloggedin={setuserloggedin} setpanelusershow={setpanelusershow} user={user} panelusershow={panelusershow} setuser={setuser} setformloginusershow={setformloginusershow} setformregisterusershow={setformregisterusershow} formregisterusershow={formregisterusershow}/>
             :   
                 panelusershow?
-                    <Paneluser setformloginusershow={setformloginusershow} setpanelusershow={setpanelusershow}/>
+                    <Paneluser userloggedin={userloggedin} setformloginusershow={setformloginusershow} setpanelusershow={setpanelusershow}/>
                 :
                     <div className="container d-flex justify-content-center flex-column align-items-center">
                         <div class="container">
@@ -22,7 +23,7 @@ const Formloginruser = ({ setformloginusershow , user , setuser , setformregiste
                                     <div class="col-sm-12">
                                         <div class="custom_menu">
                                         <ul>
-                                            <li><a href="#" className='h5' onClick={a=>setformloginusershow(false)}>Home</a></li>
+                                            <li><a href="#" className='h5 a' onClick={a=>setformloginusershow(false)}>Home</a></li>
                                         </ul>
                                         </div>
                                     </div>
@@ -52,6 +53,8 @@ const Formloginruser = ({ setformloginusershow , user , setuser , setformregiste
                             onSubmit={
                                 (values)=>{
                                     if (user.find(a=>a.phonenumber===values.phonenumber && a.password===values.password)) {
+                                        setuserloggedin(user.filter(a => a.phonenumber===values.phonenumber))
+                                        console.log(userloggedin)
                                         setpanelusershow(true)
                                     }else if(user.find(a=>a.phonenumber!==values.phonenumber && a.password===values.password)){
                                         seterror("phone number is not correct")
@@ -87,7 +90,9 @@ const Formloginruser = ({ setformloginusershow , user , setuser , setformregiste
                                 </p>
 
                                 <p className='d-block text-danger h5'>
+
                                     {error}
+
                                 </p>
                 
                                 <button className='btn btn-success mt-3' type='submit'>submit</button>
