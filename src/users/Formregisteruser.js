@@ -1,43 +1,23 @@
 import React, {useState} from 'react'
 import {Field, Form, Formik, ErrorMessage} from 'formik'
 import * as Yup from "yup"
-import Paneluser from './Paneluser'
+import { useDispatch , useSelector } from 'react-redux'
+import {add_user} from '../state-management/actions/userAction'
+import { useNavigate, Navigate} from 'react-router-dom'
 
-const Formregisteruser = ({
-                              userloggedin,
-                              setuserloggedin,
-                              setformregisterusershow,
-                              user,
-                              setuser,
-                              setformloginusershow,
-                              panelusershow,
-                              setpanelusershow
-                          }) => {
+const Formregisteruser = () => {
     const [error, seterror] = useState("")
+    const dispatch = useDispatch()
+    const user = useSelector(store=>store.userState)
+    const [local,setlocal] = useState(JSON.parse(localStorage.getItem('user')))
+    const navigate=useNavigate()
     return (
         <>
             {
-                panelusershow ?
-                    <Paneluser userloggedin={userloggedin} setformloginusershow={setformloginusershow}
-                               setpanelusershow={setpanelusershow}/>
+                local ?
+                    <Navigate to='/panel-user' replace/>
                     :
                     <div className="container d-flex justify-content-center flex-column align-items-center">
-                        <div class="container">
-                            <div class="header_section_top">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="custom_menu">
-                                            <ul>
-                                                <li><a href="#" className='h5 a' onClick={a => {
-                                                    setformregisterusershow(false);
-                                                    setformloginusershow(false);
-                                                }}>Home</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <Formik
 
                             initialValues={
@@ -52,20 +32,20 @@ const Formregisteruser = ({
                             validationSchema={
                                 Yup.object(
                                     {
-                                        username: Yup.string()
+                                         username: Yup.string()
                                             .required("Required")
                                             .min(2, "minimum caharacter is 2")
                                             .max(15, "maximum character is 15"),
                                         phonenumber: Yup.string()
-                                            //.matches(/^((|0|98|098|0098|\\+98)[1-8][1-9][2-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])$/,"phone number is not correct")
+                                            // .matches(/^((|0|98|098|0098|\\+98)[1-8][1-9][2-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])$/,"phone number is not correct")
                                             .required("Required"),
                                         password: Yup.string()
-                                            //.matches(/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,"password must be strong")
+                                            .matches(/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,"password must be strong")
                                             .required("Required"),
                                         address: Yup.string()
                                             .required("Required"),
                                         postalcode: Yup.string()
-                                            //.matches(/^(?!0)\d(?!([0-9])\1{3})[1-9]{3}[1346-9][013-46-9][1-9](?!\1{8})\d$/,"postalcode is not correct")
+                                            // .matches(/^(?!0)\d(?!([0-9])\1{3})[1-9]{3}[1346-9][013-46-9][1-9](?!\1{8})\d$/,"postalcode is not correct")
                                             .required("Required")
                                     }
                                 )
@@ -73,9 +53,9 @@ const Formregisteruser = ({
                             onSubmit={
                                 (values) => {
                                     if (user.find(a => a.phonenumber !== values.phonenumber)) {
-                                        setuser([...user, values]);
-                                        setuserloggedin([values]);
-                                        setpanelusershow(true);
+                                        navigate('/panel-user',{replace:true})
+                                        dispatch(add_user(values))
+                                        localStorage.setItem('user',JSON.stringify(values))
                                     }
                                     if (user.find(a => a.phonenumber === values.phonenumber)) {
                                         seterror("you have registered yet")
@@ -147,8 +127,7 @@ const Formregisteruser = ({
                         </Formik>
 
                         <button onClick={a => {
-                            setformregisterusershow(false);
-                            setformloginusershow(true);
+                            navigate('/form-login-user',{replace:true})
                         }} className='btn btn-primary mt-4'>registered before ?
                         </button>
 

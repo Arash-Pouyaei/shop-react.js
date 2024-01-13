@@ -1,10 +1,18 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import {Formik, Field, Form, ErrorMessage} from 'formik'
 import * as Yup from "yup"
+import { useDispatch } from 'react-redux'
+import { edit_product } from '../../state-management/actions/ProductAction'
+import { Navigate , redirect } from 'react-router-dom'
 
-const Editproduct = ({seteditproductshow, setproductitem, productitem, data, setdata}) => {
+const Editproduct = ({ setproductitem, productitem}) => {
+const dispatch=useDispatch()
+const [local,setlocal]=useState(JSON.parse(localStorage.getItem('admin')))
     return (
-        <div className='d-flex justify-content-center flex-column align-items-center w-75 m-auto'>
+        <>
+            {
+                local?
+                <div className='d-flex justify-content-center flex-column align-items-center w-75 m-auto'>
             {
                 productitem.map((i) => (
                     <>
@@ -39,8 +47,8 @@ const Editproduct = ({seteditproductshow, setproductitem, productitem, data, set
                                     .required("Required"),
                             })}
                             onSubmit={(values) => {
-                                setdata([...data.filter((item) => item.ProductId !== i.ProductId), values])
-                                seteditproductshow(false)
+                                dispatch(edit_product(values,i))
+                                redirect('/form-admin/panel-admin')
                             }}
                         >
                             <Form className='mt-3 d-flex justify-content-center flex-column'>
@@ -86,8 +94,11 @@ const Editproduct = ({seteditproductshow, setproductitem, productitem, data, set
                     </>
                 ))
             }
-            <button className='btn btn-danger' onClick={a => seteditproductshow(false)}>don't edit</button>
+            <button className='btn btn-danger' onClick={a => redirect('/form-admin/panel-admin')}>don't edit</button>
         </div>
+        :<Navigate to="form-admin" replace/>
+            }
+        </>
     )
 }
 

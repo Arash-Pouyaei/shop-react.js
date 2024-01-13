@@ -1,17 +1,18 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import {Formik, Field, Form, ErrorMessage} from 'formik'
 import * as Yup from "yup"
-import {admins} from '../data/data';
-import {NavLink, Redirect} from 'react-router-dom';
-
-const Formloginadmin = ({setadminname, aut, setaut}) => {
-    return (<>
-
-            {
-                aut ?
-                    <Redirect to="/paneladmin"/>
-                    :
-                    <div className='d-flex justify-content-center flex-column align-items-center mt-5'>
+import { useSelector , useDispatch } from 'react-redux';
+import { Navigate , useNavigate } from "react-router-dom";
+const Formloginadmin = () => {
+    const admins=useSelector(store=>store.adminState)
+    const [local,setlocal] = useState(JSON.parse(localStorage.getItem('admin')))
+    const navigate = useNavigate()
+    return (
+    <>
+                   {local? 
+                   <Navigate to="/form-admin/panel-admin" replace />
+                   :
+                   <div className='d-flex justify-content-center flex-column align-items-center mt-5'>
                         <Formik
                             initialValues={
                                 {username: "", email: "", password: ""}
@@ -34,9 +35,8 @@ const Formloginadmin = ({setadminname, aut, setaut}) => {
                                 (values, {setSubmitting}) => {
                                     setTimeout(() => {
                                         if (admins.find((item) => item.username === values.username && item.email === values.email && item.password === values.password)) {
-                                            console.log("you are admin")
-                                            setadminname(values.username)
-                                            setaut(true)
+                                            localStorage.setItem('admin',JSON.stringify(values));
+                                            navigate("/form-admin/panel-admin",{replace:true});
                                         } else if (admins.find((item) => !item.username === values.username && !item.email === !values.email && !item.password === values.password)) {
                                             console.log("you are not admin")
                                         }
@@ -70,7 +70,8 @@ const Formloginadmin = ({setadminname, aut, setaut}) => {
                             </Form>
                         </Formik>
                     </div>
-            }
+                    }
+            
         </>
     )
 }

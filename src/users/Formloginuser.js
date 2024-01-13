@@ -1,27 +1,22 @@
 import React, {useState} from 'react'
 import {Field, Form, Formik, ErrorMessage} from 'formik'
 import * as Yup from "yup"
-import Formregisteruser from './Formregisteruser'
-import Paneluser from './Paneluser'
+import { useSelector } from 'react-redux'
+import { useNavigate , Navigate } from 'react-router-dom'
 
-const Formloginruser = ({setformloginusershow, user, setuser, setformregisterusershow, formregisterusershow}) => {
-    const [panelusershow, setpanelusershow] = useState(false)
-    const [userloggedin, setuserloggedin] = useState([])
+
+const Formloginruser = () => {
     const [error, seterror] = useState("")
+    const users = useSelector(store=>store.userState)
+    const navigate=useNavigate()
+    const [local,setlocal] = useState(JSON.parse(localStorage.getItem('user'))) 
     return (
         <>
             {
-                formregisterusershow ?
-                    <Formregisteruser userloggedin={userloggedin} setuserloggedin={setuserloggedin}
-                                      setpanelusershow={setpanelusershow} user={user} panelusershow={panelusershow}
-                                      setuser={setuser} setformloginusershow={setformloginusershow}
-                                      setformregisterusershow={setformregisterusershow}
-                                      formregisterusershow={formregisterusershow}/>
+                    local?
+                    // redirect("/form-login-user/panel-user")
+                    <Navigate to="/panel-user" replace />
                     :
-                    panelusershow ?
-                        <Paneluser userloggedin={userloggedin} setformloginusershow={setformloginusershow}
-                                   setpanelusershow={setpanelusershow}/>
-                        :
                         <div className="container d-flex justify-content-center flex-column align-items-center">
                             <Formik
 
@@ -45,15 +40,15 @@ const Formloginruser = ({setformloginusershow, user, setuser, setformregisteruse
                                 }
                                 onSubmit={
                                     (values) => {
-                                        if (user.find(a => a.phonenumber === values.phonenumber && a.password === values.password)) {
-                                            setuserloggedin(user.filter(a => a.phonenumber === values.phonenumber))
-                                            console.log(userloggedin)
-                                            setpanelusershow(true)
-                                        } else if (user.find(a => a.phonenumber !== values.phonenumber && a.password === values.password)) {
+                                        if (users.find(a => a.phonenumber === values.phonenumber && a.password === values.password)) {
+                                            localStorage.clear()
+                                            localStorage.setItem('user',JSON.stringify(users.find(a => a.phonenumber === values.phonenumber && a.password === values.password)))
+                                            navigate('/panel-user',{replace:true})
+                                        } else if (users.find(a => a.phonenumber !== values.phonenumber && a.password === values.password)) {
                                             seterror("phone number is not correct")
-                                        } else if (user.find(a => a.phonenumber === values.phonenumber && a.password !== values.password)) {
+                                        } else if (users.find(a => a.phonenumber === values.phonenumber && a.password !== values.password)) {
                                             seterror("password is not correct")
-                                        } else if (user.find(a => a.phonenumber !== values.phonenumber && a.password !== values.password)) {
+                                        } else if (users.find(a => a.phonenumber !== values.phonenumber && a.password !== values.password)) {
                                             seterror("phone number and password is not correct")
                                         }
                                     }
@@ -94,7 +89,7 @@ const Formloginruser = ({setformloginusershow, user, setuser, setformregisteruse
 
                             </Formik>
 
-                            <button type='button' onClick={a => setformregisterusershow(true)}
+                            <button type='button' onClick={a => navigate('/form-register-user',{replace:true})}
                                     className='btn btn-primary mt-4'>didn't register yet ?
                             </button>
 
