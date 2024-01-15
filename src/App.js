@@ -4,7 +4,7 @@ import "font-awesome/css/font-awesome.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style/style.css";
 import "./style/responsive.css";
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { Provider } from 'react-redux'
 import store from './state-management/store'
 import {routes} from "./routes";
@@ -17,7 +17,7 @@ function App() {
     const appRoutes = generateAppRoutes(routes);
     return (
         <>
-            <Router>
+            <BrowserRouter>
                 <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
                     <Provider store={store}>
                     <Header appRoutes={appRoutes}/>
@@ -32,7 +32,7 @@ function App() {
                     </Routes>
                     </Provider>
                 </div>
-            </Router>
+            </BrowserRouter>
         </>
     );
 }

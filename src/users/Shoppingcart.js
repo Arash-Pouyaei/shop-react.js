@@ -8,12 +8,13 @@ export const Shoppingcart = () => {
     const users = useSelector(store=>store.userState)
     const dispatch = useDispatch()
     const [local,setlocal] = useState(JSON.parse(localStorage.getItem('user')))
-    const user = users.filter(i=>i.userId===local.userId)
+    if (local) {
+        const user = users.filter(i=>i.userId===local.userId)
     const cart = user[0].cart
   return (
     <>
         {
-            local?
+            
             <div>
         <table className='table table-striped table-bordered table-hover mt-3'>
                 <thead style={{textAlign: "center"}}>
@@ -33,7 +34,7 @@ export const Shoppingcart = () => {
                 {
                     cart.length===0?
                     <tr>
-                        <p className='h5'>سفارشی اضافه نشده</p>      
+                        <p>سفارشی اضافه نشده</p>      
                     </tr>
                     :
                     cart.map((item) => (
@@ -41,9 +42,9 @@ export const Shoppingcart = () => {
                             <td className='h5'>{item.ProductType}</td>
                             <td className='h5'>{item.ProductName}</td>
                             <td className='h5'>{item.ProductPrice}</td>
-                            {/* <td className='h5'><img src={item.ProductPicture}/></td> */}
+                            <td className='h5'><img src={item.ProductPicture}/></td>
                             <td className='h5'>{item.ProductCount}</td>
-                            <td className="h5">{item.productPrice*item.quantity}</td>
+                            <td className="h5">{item.ProductPrice*item.ProductCount}</td>
                             <td>
                                 <button type="button" onClick={r => dispatch(remove_cart(local.userId,item.productId))} className='btn btn-danger'>
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
@@ -57,10 +58,13 @@ export const Shoppingcart = () => {
                 }
                 </tbody>
             </table>
-    </div>:
-    <Navigate to="/form-login-user" replace />
+    </div>
+    
         }
     </>
     
   )
+    } else {
+        <Navigate to="/form-login-user" replace />
+    }
 }

@@ -5,13 +5,13 @@ import {Footer} from './components/Footer'
 import {Products} from './components/Products'
 
 
-export const Landingpage = ({data}) => {
+export const Landingpage = () => {
 
 
     return (
 
         <>
-            <Products data={data}/>
+            <Products />
             < Footer/>
         </>
 

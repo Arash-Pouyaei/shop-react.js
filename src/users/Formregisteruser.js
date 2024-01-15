@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Field, Form, Formik, ErrorMessage} from 'formik'
+import {v4 as uuidv4} from 'uuid';
 import * as Yup from "yup"
 import { useDispatch , useSelector } from 'react-redux'
 import {add_user} from '../state-management/actions/userAction'
@@ -22,11 +23,13 @@ const Formregisteruser = () => {
 
                             initialValues={
                                 {
+                                    userId:uuidv4(),
                                     username: "",
                                     phonenumber: "",
                                     password: "",
                                     address: "",
                                     postalcode: "",
+                                    cart:[]
                                 }
                             }
                             validationSchema={

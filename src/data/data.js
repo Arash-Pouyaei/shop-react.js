@@ -3,25 +3,25 @@ const datas = [
         ProductId: '1',
         ProductType: "erg",
         ProductName: "erg",
-        ProductPrice: "erg",
+        ProductPrice: "3",
         ProductPicture: "ergr",
-        ProductCount: "esrg"
+        ProductCount: "1"
     },
     {
         ProductId: '2',
         ProductType: "sdgbs",
-        ProductName: "erg",
-        ProductPrice: "erg",
+        ProductName: "htm",
+        ProductPrice: "2",
         ProductPicture: "ergr",
-        ProductCount: "esrg"
+        ProductCount: "1"
     },
     {
         ProductId: '3',
         ProductType: "dsfrgb",
         ProductName: "erg",
-        ProductPrice: "erg",
+        ProductPrice: "4",
         ProductPicture: "ergr",
-        ProductCount: "esrg"
+        ProductCount: "1"
     }
 ]
 const admins = [
