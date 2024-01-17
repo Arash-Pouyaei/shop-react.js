@@ -1,4 +1,4 @@
-import { ADD_CART, ADD_USER , EDIT_USER , REMOVE_CART, REMOVE_USER } from "../actions/actionTypes";
+import { ADD_CART, ADD_USER , DEC_CART_QTY, EDIT_USER , INC_CART_QTY, REMOVE_CART, REMOVE_USER } from "../actions/actionTypes";
 import { users } from "../../data/data";
 
 export const userReducer = function(state=users,action) {
@@ -18,9 +18,36 @@ export const userReducer = function(state=users,action) {
         case REMOVE_CART:
             return state.map((user) =>
                 user.userId === action.payload.userId
-                ? { ...user, cart: [...user.cart.filter(i=>i.productId!==action.payload.productId)] }
+                ? { ...user, cart: [...user.cart.filter(i=>i.ProductId!==action.payload.ProductId)] }
                 : user
                 
+            );
+        case INC_CART_QTY:
+            return state.map((user) =>
+                user.userId === action.payload.userId
+                    ? {
+                        ...user,
+                        cart: user.cart.map((item) =>
+                            item.ProductId === action.payload.ProductId&&item.Admin_ProductCount-1>=item.User_ProductCount&&item.Admin_ProductCount>0
+                                ? { ...item, User_ProductCount: item.User_ProductCount + 1 }
+                                : item
+                        ),
+                    }
+                    : user
+            );
+            
+        case DEC_CART_QTY:
+            return state.map((user) =>
+                user.userId === action.payload.userId
+                    ? {
+                        ...user,
+                        cart: user.cart.map((item) =>
+                            item.ProductId === action.payload.ProductId && item.User_ProductCount > 0 && item.Admin_ProductCount>0
+                                ? { ...item, User_ProductCount: item.User_ProductCount - 1 }
+                                : item
+                        ),
+                    }
+                    : user
             );
         default:
             return state

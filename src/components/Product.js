@@ -17,13 +17,18 @@ export const Product = () => {
                             <div class="col-lg-4 col-sm-4">
                                 <div class="box_main">
                                     <h4 class="shirt_text">{item.ProductName}</h4>
-                                    <p class="price_text">Price <span style={{color: "#262626"}}>{item.ProductPrice}</span></p>
+                                    <p class="price_text h6">Price: {
+                            item.ProductOff===0?
+                            <h6>{item.ProductPrice}</h6>
+                            :
+                            <><h6>{Math.round(item.ProductPrice-item.ProductPrice*item.ProductOff/100)}</h6><h6 class="text-muted ml-2"><del>{item.ProductPrice}</del></h6></>
+                          }</p>
                                     <div class="tshirt_img">
                                         <img alt='img' src={item.ProductPicture}/>
                                     </div>
                                     <div class="btn_main">
                                         <div class="buy_bt">
-                                            <a className='a' onClick={a=>dispatch(add_cart(item , userId))}>Buy Now</a>
+                                            <a className='a' onClick={a=>{user[0].cart.find(i=>i.ProductId===item.ProductId)?alert("this product was resently added to cart"):dispatch(add_cart(item , userId))}}>Buy Now</a>
                                         </div>
                                         <div class="seemore_bt">
                                             <a href="#aegr">See More</a>
@@ -44,7 +49,12 @@ export const Product = () => {
                             <div class="col-lg-4 col-sm-4">
                                 <div class="box_main">
                                     <h4 class="shirt_text">{item.ProductName}</h4>
-                                    <p class="price_text">Price <span style={{color: "#262626"}}>{item.ProductPrice}</span></p>
+                                    <p class="price_text h6">Price: {
+                            item.ProductOff===0?
+                            <h6>{item.ProductPrice}</h6>
+                            :
+                            <><h6>{Math.round(item.ProductPrice-item.ProductPrice*item.ProductOff/100)}</h6><h6 class="text-muted ml-2"><del>{item.ProductPrice}</del></h6></>
+                          }</p>
                                     <div class="tshirt_img">
                                         <img alt='img' src={item.ProductPicture}/>
                                     </div>

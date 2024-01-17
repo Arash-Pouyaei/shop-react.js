@@ -55,7 +55,8 @@ const Paneladmin = () => {
                             <Column dataField="ProductType" />
                             <Column dataField="ProductName" />
                             <Column dataField="ProductPrice" width={170} />
-                            <Column dataField="ProductCount" width={125}/>
+                            <Column dataField="ProductOff" width={170} />
+                            <Column dataField="Admin_ProductCount" width={125}/>
                             {/* <Column dataField="BirthDate" dataType="date" /> */}
                             <Toolbar>
                                 <Item name="addRowButton" showText="always" />

@@ -27,6 +27,7 @@ const Tableproducts = ({
                     <th className='h5'>Product Type</th>
                     <th className='h5'>Product Name</th>
                     <th className='h5'>Product Price</th>
+                    <th className='h5'>Product Off</th>
                     <th className='h5'>Product Picture</th>
                     <th className='h5'>Product Count</th>
                     <th className='h5'>Product Date</th>
